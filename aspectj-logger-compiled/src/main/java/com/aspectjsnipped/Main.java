@@ -6,6 +6,5 @@ public class Main {
 	public static void main(String[] args) {
 		MessageWritter messageCommunicator = new MessageWritter();
 		messageCommunicator.write();
-		
 	}
 }
