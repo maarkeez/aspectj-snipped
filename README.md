@@ -6,10 +6,6 @@ This repository contains snipped for aspectj
 Download from http://www.eclipse.org/aspectj/downloads.php and run for install
 
 ``
-cd <installation-path>
-`` 
-
-``
 java -jar <path-to-downloaded-file>
 ``
 
