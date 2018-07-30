@@ -1,4 +1,4 @@
-package com.aspectjsnipped.logger;
+package com.aspectjsnipped.aspect;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
