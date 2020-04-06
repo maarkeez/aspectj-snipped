@@ -1,0 +1,68 @@
+plugins {
+    id 'java'
+    id "io.freefair.aspectj.post-compile-weaving" version "4.1.6"
+}
+
+/** ****************************
+ *   PROJECT
+ ** ****************************/
+
+group = 'com.aspectjsnippet'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+
+/** ****************************
+ *   REPOSITORIES
+ ** ****************************/
+
+repositories {
+    mavenCentral()
+}
+
+/** ****************************
+ *   DEPENDENCIES
+ ** ****************************/
+
+dependencies {
+
+    // Jackson
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+
+    // Lombok
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    // Junit
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+
+}
+
+/** ****************************
+ *   TASKS
+ ** ****************************/
+
+// -----------------------------
+// TEST
+// -----------------------------
+test {
+    useJUnitPlatform()
+}
+
+// -----------------------------
+// ASPECTJ
+// -----------------------------
+compileJava {
+    ajc {
+        options {
+            compilerArgs += "-showWeaveInfo"
+        }
+    }
+}
